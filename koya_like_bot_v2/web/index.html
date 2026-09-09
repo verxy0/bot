@@ -1,47 +1,105 @@
 <!doctype html>
 <html lang="id">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Koya like Dashboard</title><link rel="stylesheet" href="style.css">
-</head>
-<body>
-<aside class="sidebar">
-  <div class="brand"><span class="logo">K</span><div><b>BOT Dong0</b><small>Dashboard</small></div></div>
-  <button class="server active">⚙️ Server Settings</button>
-  <button class="server">🛡️ Moderation</button>
-  <button class="server">🤖 AutoMod</button>
-  <button class="server">⭐ Leveling</button>
-  <button class="server">💰 Economy</button>
-  <button class="server">👋 Welcome</button>
-  <button class="server">📋 Logging</button>
-  <button class="server">🎫 Tickets</button>
-  <button class="server">🎉 Giveaways</button>
-  <button class="server">🎭 Roles</button>
-  <button class="server">🧰 Utility</button>
-</aside>
-<main>
-<header><div><h1>Server Settings</h1><p>Kelola bot dari satu dashboard.</p></div><div class="top"><input id="guild" placeholder="Discord Server ID"><button id="load">Load</button></div></header>
-<div id="notice"></div>
-<section class="grid">
-  <article class="card"><h2>Welcome</h2><p class="muted">Pesan ketika member baru bergabung.</p>
-    <label>Channel ID</label><input id="welcome_channel" placeholder="123456789012345678">
-    <label>Message</label><textarea id="welcome_message" placeholder="Selamat datang, {user}!"></textarea>
-  </article>
-  <article class="card"><h2>Leveling</h2><p class="muted">Atur pesan saat member naik level.</p>
-    <label>Level-up message</label><textarea id="level_message">GG {user}, you reached level {level}!</textarea>
-  </article>
-  <article class="card"><h2>AutoMod</h2><div class="row"><label class="switch"><input type="checkbox" id="automod_enabled"><span></span></label><b>Enable AutoMod</b></div>
-    <div class="row"><label class="switch"><input type="checkbox" id="anti_invite"><span></span></label><b>Block Discord invites</b></div>
-    <label>Blocked words</label><textarea id="automod_words" placeholder="word1, word2, word3"></textarea>
-  </article>
-  <article class="card"><h2>Logging</h2><p class="muted">Channel log untuk event penting.</p>
-    <label>Log channel ID</label><input id="log_channel" placeholder="123456789012345678">
-  </article>
-</section>
-<div class="actions"><button class="primary" id="save">Save Settings</button><span id="status"></span></div>
-<section class="card commands"><h2>Command Center</h2><div class="chips">
-<span>/ban</span><span>/kick</span><span>/timeout</span><span>/warn</span><span>/purge</span><span>/slowmode</span><span>/profile</span><span>/rank</span><span>/daily</span><span>/leaderboard</span><span>/balance</span><span>/work</span><span>/8ball</span><span>/choose</span><span>/ship</span><span>/avatar</span><span>/userinfo</span><span>/help</span>
-</div></section>
-</main>
-<script src="app.js"></script>
-</body></html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>BOT Dongo Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="logo">K</span>
+        <div><b>Koya-like</b><small>Dashboard</small></div>
+      </div>
+      <button class="server active">⚙️ Server Settings</button>
+      <button class="server">🛡️ Moderation</button>
+      <button class="server">🤖 AutoMod</button>
+      <button class="server">⭐ Leveling</button>
+      <button class="server">💰 Economy</button>
+      <button class="server">👋 Welcome</button>
+      <button class="server">📋 Logging</button>
+      <button class="server">🎫 Tickets</button>
+      <button class="server">🎉 Giveaways</button>
+      <button class="server">🎭 Roles</button>
+      <button class="server">🧰 Utility</button>
+    </aside>
+    <main>
+      <header>
+        <div>
+          <h1>Server Settings</h1>
+          <p>Kelola bot dari satu dashboard.</p>
+        </div>
+        <div class="top">
+          <input id="guild" placeholder="Discord Server ID" /><button id="load">
+            Load
+          </button>
+        </div>
+      </header>
+      <div id="notice"></div>
+      <section class="grid">
+        <article class="card">
+          <h2>Welcome</h2>
+          <p class="muted">Pesan ketika member baru bergabung.</p>
+          <label>Channel ID</label
+          ><input id="welcome_channel" placeholder="123456789012345678" />
+          <label>Message</label
+          ><textarea
+            id="welcome_message"
+            placeholder="Selamat datang, {user}!"
+          ></textarea>
+        </article>
+        <article class="card">
+          <h2>Leveling</h2>
+          <p class="muted">Atur pesan saat member naik level.</p>
+          <label>Level-up message</label
+          ><textarea id="level_message">
+GG {user}, you reached level {level}!</textarea
+          >
+        </article>
+        <article class="card">
+          <h2>AutoMod</h2>
+          <div class="row">
+            <label class="switch"
+              ><input
+                type="checkbox"
+                id="automod_enabled" /><span></span></label
+            ><b>Enable AutoMod</b>
+          </div>
+          <div class="row">
+            <label class="switch"
+              ><input type="checkbox" id="anti_invite" /><span></span></label
+            ><b>Block Discord invites</b>
+          </div>
+          <label>Blocked words</label
+          ><textarea
+            id="automod_words"
+            placeholder="word1, word2, word3"
+          ></textarea>
+        </article>
+        <article class="card">
+          <h2>Logging</h2>
+          <p class="muted">Channel log untuk event penting.</p>
+          <label>Log channel ID</label
+          ><input id="log_channel" placeholder="123456789012345678" />
+        </article>
+      </section>
+      <div class="actions">
+        <button class="primary" id="save">Save Settings</button
+        ><span id="status"></span>
+      </div>
+      <section class="card commands">
+        <h2>Command Center</h2>
+        <div class="chips">
+          <span>/ban</span><span>/kick</span><span>/timeout</span
+          ><span>/warn</span><span>/purge</span><span>/slowmode</span
+          ><span>/profile</span><span>/rank</span><span>/daily</span
+          ><span>/leaderboard</span><span>/balance</span><span>/work</span
+          ><span>/8ball</span><span>/choose</span><span>/ship</span
+          ><span>/avatar</span><span>/userinfo</span><span>/help</span>
+        </div>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
