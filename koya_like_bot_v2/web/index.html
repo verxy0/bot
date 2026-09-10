@@ -1,105 +1,320 @@
 <!doctype html>
 <html lang="id">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>BOT Dongo Dashboard</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aetheria Corp — Cosmic Bot</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="bg"></div>
+    <div class="stars"></div>
+    <div class="noise"></div>
+
     <aside class="sidebar">
       <div class="brand">
-        <span class="logo">K</span>
-        <div><b>Bot Dong0</b><small>Dashboard</small></div>
+        <div class="brand-icon">✦</div>
+        <div><b>AETHERIA CORP</b><small>Beyond Limit</small></div>
       </div>
-      <button class="server active">⚙️ Server Settings</button>
-      <button class="server">🛡️ Moderation</button>
-      <button class="server">🤖 AutoMod</button>
-      <button class="server">⭐ Leveling</button>
-      <button class="server">💰 Economy</button>
-      <button class="server">👋 Welcome</button>
-      <button class="server">📋 Logging</button>
-      <button class="server">🎫 Tickets</button>
-      <button class="server">🎉 Giveaways</button>
-      <button class="server">🎭 Roles</button>
-      <button class="server">🧰 Utility</button>
+      <div class="menu-label">MAIN MENU</div>
+      <nav>
+        <a class="active" data-page="overview"><span>⌂</span>Overview</a>
+        <a data-page="analytics"><span>⌁</span>Analytics</a>
+        <a data-page="configuration"><span>⚙</span>Configuration</a>
+        <a data-page="logs"><span>▤</span>Logs</a>
+        <a data-page="support"><span>?</span>Support</a>
+      </nav>
+      <div class="side-bottom">
+        <div class="online">
+          <i></i>
+          <div><b>System Online</b><small>All systems operational</small></div>
+        </div>
+        <small class="copy">AETHERIA CORP © 2025</small>
+      </div>
     </aside>
+
     <main>
       <header>
-        <div>
-          <h1>Server Settings</h1>
-          <p>Kelola bot dari satu dashboard.</p>
-        </div>
-        <div class="top">
-          <input id="guild" placeholder="Discord Server ID" /><button id="load">
-            Load
-          </button>
+        <div class="top-actions">
+          <button class="icon-btn">♧</button>
+          <div class="user">
+            <div class="avatar">●</div>
+            <div><b>Poppins</b><small>Administrator</small></div>
+            <span>⌄</span>
+          </div>
         </div>
       </header>
-      <div id="notice"></div>
-      <section class="grid">
-        <article class="card">
-          <h2>Welcome</h2>
-          <p class="muted">Pesan ketika member baru bergabung.</p>
-          <label>Channel ID</label
-          ><input id="welcome_channel" placeholder="123456789012345678" />
-          <label>Message</label
-          ><textarea
-            id="welcome_message"
-            placeholder="Selamat datang, {user}!"
-          ></textarea>
-        </article>
-        <article class="card">
-          <h2>Leveling</h2>
-          <p class="muted">Atur pesan saat member naik level.</p>
-          <label>Level-up message</label
-          ><textarea id="level_message">
-GG {user}, you reached level {level}!</textarea
-          >
-        </article>
-        <article class="card">
-          <h2>AutoMod</h2>
-          <div class="row">
-            <label class="switch"
-              ><input
-                type="checkbox"
-                id="automod_enabled" /><span></span></label
-            ><b>Enable AutoMod</b>
+
+      <section id="overview" class="page active">
+        <div class="hero">
+          <div class="hero-content">
+            <span class="badge">✦ COSMIC INTELLIGENCE</span>
+            <h1>Cosmic Bot<br /><span>Dashboard</span></h1>
+            <p>
+              Your AI companion in the digital universe.<br />Monitor, analyze
+              and control your bot in real-time.
+            </p>
+            <div class="actions">
+              <button class="btn primary" onclick="go('analytics')">
+                View Analytics <b>→</b></button
+              ><button class="btn" onclick="go('configuration')">
+                ⚙ Bot Settings
+              </button>
+            </div>
           </div>
-          <div class="row">
-            <label class="switch"
-              ><input type="checkbox" id="anti_invite" /><span></span></label
-            ><b>Block Discord invites</b>
+          <div class="hero-portal">
+            <div class="portal"></div>
+            <div class="portal-ring"></div>
           </div>
-          <label>Blocked words</label
-          ><textarea
-            id="automod_words"
-            placeholder="word1, word2, word3"
-          ></textarea>
-        </article>
-        <article class="card">
-          <h2>Logging</h2>
-          <p class="muted">Channel log untuk event penting.</p>
-          <label>Log channel ID</label
-          ><input id="log_channel" placeholder="123456789012345678" />
-        </article>
+        </div>
+        <div class="feature-grid">
+          <article>
+            <span>⌁</span><b>Real-Time Monitoring</b>
+            <p>Track bot performance and activity in real-time.</p>
+          </article>
+          <article>
+            <span>♮</span><b>Advanced Analytics</b>
+            <p>Gain insights from your bot's behavior.</p>
+          </article>
+          <article>
+            <span>✥</span><b>Secure & Reliable</b>
+            <p>Built for stability and security.</p>
+          </article>
+          <article>
+            <span>♧</span><b>24/7 Support</b>
+            <p>We're always here to help you.</p>
+          </article>
+        </div>
       </section>
-      <div class="actions">
-        <button class="primary" id="save">Save Settings</button
-        ><span id="status"></span>
-      </div>
-      <section class="card commands">
-        <h2>Command Center</h2>
-        <div class="chips">
-          <span>/ban</span><span>/kick</span><span>/timeout</span
-          ><span>/warn</span><span>/purge</span><span>/slowmode</span
-          ><span>/profile</span><span>/rank</span><span>/daily</span
-          ><span>/leaderboard</span><span>/balance</span><span>/work</span
-          ><span>/8ball</span><span>/choose</span><span>/ship</span
-          ><span>/avatar</span><span>/userinfo</span><span>/help</span>
+
+      <section id="analytics" class="page">
+        <div class="page-title">
+          <div>
+            <span class="badge">ANALYTICS</span>
+            <h2>Analytics</h2>
+            <p>Detailed analysis of bot performance and user behavior.</p>
+          </div>
+          <button class="select">Last 7 Days⌄</button>
+        </div>
+        <div class="metrics">
+          <div class="metric">
+            <small>Total Sessions</small><strong>1,829</strong><em>↑ 12.5%</em>
+          </div>
+          <div class="metric">
+            <small>Active Users</small><strong>1,642</strong><em>↑ 8.2%</em>
+          </div>
+          <div class="metric">
+            <small>Response Time</small><strong>1,320 ms</strong><em>↑ 4.8%</em>
+          </div>
+          <div class="metric">
+            <small>Uptime</small><strong>99.98%</strong><em>↑ 9.2%</em>
+          </div>
+        </div>
+        <div class="analytics-grid">
+          <div class="panel">
+            <div class="panel-head">
+              <b>Bot Activity</b
+              ><button class="mini-select">Last 24 Hours⌄</button>
+            </div>
+            <div class="chart">
+              <svg viewBox="0 0 800 260" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="fill" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#654bff" stop-opacity=".65" />
+                    <stop offset="1" stop-color="#654bff" stop-opacity="0" />
+                  </linearGradient>
+                </defs>
+                <path
+                  d="M0 160 C55 105 90 205 145 145 S230 180 285 125 S360 205 420 135 S500 170 555 70 S640 150 690 75 S750 145 800 80 L800 260 L0 260Z"
+                  fill="url(#fill)"
+                />
+                <path
+                  d="M0 160 C55 105 90 205 145 145 S230 180 285 125 S360 205 420 135 S500 170 555 70 S640 150 690 75 S750 145 800 80"
+                  fill="none"
+                  stroke="#6685ff"
+                  stroke-width="4"
+                />
+              </svg>
+              <div class="xlabels">
+                <span>00:00</span><span>04:00</span><span>08:00</span
+                ><span>12:00</span><span>16:00</span><span>20:00</span
+                ><span>24:00</span>
+              </div>
+            </div>
+          </div>
+          <div class="panel load-panel">
+            <b>System Load</b>
+            <div class="load">
+              <div class="donut"><strong>68%</strong></div>
+              <div class="legend">
+                <span>● CPU <b>68%</b></span
+                ><span>● Memory <b>54%</b></span
+                ><span>● Disk <b>32%</b></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="configuration" class="page">
+        <div class="page-title">
+          <div>
+            <span class="badge">BOT CONTROL</span>
+            <h2>Configuration</h2>
+            <p>Manage your bot settings and preferences.</p>
+          </div>
+        </div>
+        <div class="config-grid">
+          <div class="panel settings">
+            <b>⚙ Bot Settings</b>
+            <div class="setting">Auto Reply <i class="toggle on"></i></div>
+            <div class="setting">Anti Spam <i class="toggle on"></i></div>
+            <div class="setting">Logging <i class="toggle on"></i></div>
+            <div class="setting">Maintenance Mode <i class="toggle"></i></div>
+            <button class="btn primary save">Save Changes</button>
+          </div>
+          <div class="panel profile-card">
+            <b>✦ Bot Profile</b>
+            <div class="bot-profile">
+              <div class="bot-icon">✦</div>
+              <div>
+                <strong>Cosmic Assistant</strong><small>ID: 8042-c0</small>
+              </div>
+            </div>
+            <label>Prefix</label><input value="/" /><label>Language</label
+            ><select>
+              <option>Indonesian</option>
+              <option>English</option></select
+            ><label>Timezone</label
+            ><select>
+              <option>Asia/Jakarta</option>
+              <option>UTC</option>
+            </select>
+          </div>
+          <div class="panel limits">
+            <b>System Limits</b>
+            <div class="limit-wrap">
+              <div class="donut purple"><strong>75%</strong></div>
+              <div class="legend">
+                <span>● CPU Usage <b>75%</b></span
+                ><span>● Memory Usage <b>64%</b></span
+                ><span>● Disk Usage <b>34%</b></span>
+              </div>
+            </div>
+            <button
+              class="btn restart"
+              onclick="showToast('Bot restart requested')"
+            >
+              ⟳ Restart Bot
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="logs" class="page">
+        <div class="page-title">
+          <div>
+            <span class="badge">LIVE MONITOR</span>
+            <h2>System Logs</h2>
+            <p>Real-time bot logs and system events.</p>
+          </div>
+        </div>
+        <div class="log-tools">
+          <div>
+            <button class="filter active">All</button
+            ><button class="filter">Info</button
+            ><button class="filter">Warn</button
+            ><button class="filter">Error</button>
+          </div>
+          <input id="search" placeholder="⌕ Search logs..." />
+        </div>
+        <div class="panel table">
+          <div class="tr th">
+            <span>TIME</span><span>LEVEL</span><span>MESSAGE</span>
+          </div>
+          <div class="tr">
+            <span>02:14:32</span><span class="tag info">INFO</span
+            ><span>Bot started successfully</span>
+          </div>
+          <div class="tr">
+            <span>02:14:33</span><span class="tag info">INFO</span
+            ><span>Connected to database</span>
+          </div>
+          <div class="tr">
+            <span>02:14:35</span><span class="tag info">INFO</span
+            ><span>Loaded 23 commands</span>
+          </div>
+          <div class="tr">
+            <span>02:14:39</span><span class="tag warn">WARN</span
+            ><span>Rate limit approaching (user: 7283)</span>
+          </div>
+          <div class="tr">
+            <span>02:14:42</span><span class="tag info">INFO</span
+            ><span>Command /help executed (user: 4821)</span>
+          </div>
+          <div class="tr">
+            <span>02:14:45</span><span class="tag error">ERROR</span
+            ><span>Failed to fetch external API (Retry 1/3)</span>
+          </div>
+          <div class="tr">
+            <span>02:14:48</span><span class="tag info">INFO</span
+            ><span>Successfully reconnected to API</span>
+          </div>
+          <div class="tr">
+            <span>02:14:52</span><span class="tag info">INFO</span
+            ><span>Session closed (user: 7283)</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="support" class="page">
+        <div class="page-title">
+          <div>
+            <span class="badge">HELP CENTER</span>
+            <h2>Support Center</h2>
+            <p>Need help? We're here for you.</p>
+          </div>
+        </div>
+        <div class="support-grid">
+          <div class="panel contact">
+            <b>Get In Touch</b>
+            <div class="contact-item">
+              <i>●</i>
+              <div>
+                <strong>Discord</strong><small>Join our community</small>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i>✉</i>
+              <div>
+                <strong>Email</strong><small>support@aetheria.corp</small>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i>▣</i>
+              <div><strong>Live Chat</strong><small>Available 24/7</small></div>
+            </div>
+          </div>
+          <div class="panel faq">
+            <b>Frequently Asked Questions</b>
+            <div class="faq-item">
+              How to add new commands? <strong>+</strong>
+            </div>
+            <div class="faq-item">
+              How to change the bot prefix? <strong>+</strong>
+            </div>
+            <div class="faq-item">
+              Why is my bot offline? <strong>+</strong>
+            </div>
+            <div class="faq-item">
+              How to check bot logs? <strong>+</strong>
+            </div>
+          </div>
         </div>
       </section>
     </main>
-    <script src="app.js"></script>
+
+    <div class="toast" id="toast"></div>
+    <script src="script.js"></script>
   </body>
 </html>
